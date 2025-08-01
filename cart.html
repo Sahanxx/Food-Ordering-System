@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .cart-container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .total {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .btn-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-group button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-group button.checkout {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .btn-group button.clear {
+            background-color: #e84343;
+            color: #fff;
+        }
+
+        .btn-group button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be dynamically populated here -->
+            </tbody>
+        </table>
+        <div class="total">
+            Total Price: <span id="total-price">0</span> RS
+        </div>
+        <div class="btn-group">
+            <button class="checkout" onclick="checkout()">Checkout</button>
+            <button class="clear" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function loadCart() {
+            fetch('get_cart.php')
+                .then(response => response.json())
+                .then(data => {
+                    const cartItems = document.getElementById('cart-items');
+                    cartItems.innerHTML = '';
+                    let totalPrice = 0;
+
+                    data.forEach(item => {
+                        cartItems.innerHTML += `
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>${item.price}</td>
+                            </tr>
+                        `;
+                        totalPrice += parseFloat(item.price);
+                    });
+
+                    document.getElementById('total-price').innerText = totalPrice;
+                });
+        }
+
+        function checkout() {
+            fetch('checkout.php')
+                .then(response => response.text())
+                .then(data => {
+                    if (data === 'success') {
+                        alert('Order placed successfully!');
+                        window.location.href = 'thanks.html';
+                    } else {
+                        alert('Failed to place order.');
+                    }
+                });
+        }
+
+        function clearCart() {
+            fetch('clear_cart.php')
+                .then(response => response.text())
+                .then(data => {
+                    if (data === 'success') {
+                        alert('Cart cleared!');
+                        loadCart();
+                    } else {
+                        alert('Failed to clear cart.');
+                    }
+                });
+        }
+
+        loadCart();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Menu</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Your existing styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background: #1f2937;
+            color: #fff;
+            padding: 1px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            font-size: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.75em;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 130px;
+            /* Adjusted margin-left */
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .logo span {
+            color: #f97316;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .navbar {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding-right: 50px;
+            /* Adjusted padding-left */
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 10px;
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            /* Remove underline */
+        }
+
+        .navbar a:hover {
+            background: #3b4b5a;
+        }
+
+        section {
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+        }
+
+        .food-item {
+            width: 300px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            cursor: pointer;
+        }
+
+        .food-info {
+            padding: 1em;
+            text-align: center;
+        }
+
+        h3,
+        p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #e84343;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c62828;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .button-group {
+            margin-bottom: 40px;
+            margin-left: 250px;
+        }
+
+        .button-group button {
+            padding: 12px 24px;
+            margin-top: 100px;
+            margin-right: 10px;
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .button-group button#special-button {
+            background-color: #FFC107;
+            color: #fff;
+        }
+
+        .button-group button:hover:not(.active) {
+            background-color: #FFC107;
+            color: #fff;
+        }
+
+        .shead {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: black;
+            margin-left: 250px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        footer .share a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        footer .share a:hover {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h2 class="logo">SILVER <span>SPOON</span></h2>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="special.html">Food Menu</a></li>
+                <li><a href="family.html">Rooms</a></li>
+
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="food-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shead">
+                    <h2>Special Menu</h2>
+                </div>
+
+                <div class="special-menu text-center">
+                    <div class="button-group filter-button-group">
+                        <button data-filter=".Special" id="special-button">Special</button>
+                        <button data-filter=".Juice" id="juice-button">Juice</button>
+                        <button data-filter=".Cakes" id="cakes-button">Cakes</button>
+                        <button data-filter=".Buns" id="buns-button">Buns</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="food-item">
+                <img src="food/kottu2.jpg" alt="Food Item 1">
+                <div class="food-info">
+                    <h3>Kottu</h3>
+                    <p>RS: 800</p>
+                    <button class="add-cart-button" data-name="Kottu" data-price="800">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/Kottu3.jpg" alt="Food Item 2">
+                <div class="food-info">
+                    <h3>Full Chicken Kottu</h3>
+                    <p>RS: 1000</p>
+                    <button class="add-cart-button" data-name="Full Chicken Kottu" data-price="1000">Add to
+                        Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/cheese.jpg" alt="Food Item 3">
+                <div class="food-info">
+                    <h3>Cheese Kottu</h3>
+                    <p>RS: 1200</p>
+                    <button class="add-cart-button" data-name="Cheese Kottu" data-price="1200">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/veg.jpg" alt="Food Item 4">
+                <div class="food-info">
+                    <h3>Vegetable Rice</h3>
+                    <p>RS: 650</p>
+                    <button class="add-cart-button" data-name="Vegetable Rice" data-price="650">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/chicken1.jpg" alt="Food Item 5">
+                <div class="food-info">
+                    <h3>Normal Chicken Rice</h3>
+                    <p>RS: 750</p>
+                    <button class="add-cart-button" data-name="Normal Chicken Rice" data-price="750">Add to
+                        Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/chicken.jpg" alt="Food Item 6">
+                <div class="food-info">
+                    <h3>Full Chicken Rice</h3>
+                    <p>RS: 950</p>
+                    <button class="add-cart-button" data-name="Full Chicken Rice" data-price="950">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/biriyani.jpg" alt="Food Item 7">
+                <div class="food-info">
+                    <h3>Biriyani</h3>
+                    <p>RS: 1100</p>
+                    <button class="add-cart-button" data-name="Biriyani" data-price="1100">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/Hopper.jpg" alt="Food Item 8">
+                <div class="food-info">
+                    <h3>Stream Hoppers And Curry</h3>
+                    <p>RS: 100</p>
+                    <button class="add-cart-button" data-name="Stream Hoppers And Curry" data-price="100">Add to
+                        Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/noodles.jpg" alt="Food Item 9">
+                <div class="food-info">
+                    <h3>Noodles</h3>
+                    <p>RS: 650</p>
+                    <button class="add-cart-button" data-name="Noodles" data-price="650">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/pas.jpg" alt="Food Item 10">
+                <div class="food-info">
+                    <h3>Pasta</h3>
+                    <p>RS: 850</p>
+                    <button class="add-cart-button" data-name="Pasta" data-price="850">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/egg.jpg" alt="Food Item 11">
+                <div class="food-info">
+                    <h3>Egg Kottu</h3>
+                    <p>RS: 850</p>
+                    <button class="add-cart-button" data-name="Egg Kottu" data-price="850">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="food-item">
+                <img src="food/pat.jpg" alt="Food Item 12">
+                <div class="food-info">
+                    <h3>Spaghetti</h3>
+                    <p>RS: 900</p>
+                    <button class="add-cart-button" data-name="Spaghetti" data-price="900">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 by Silver Spoon. All rights reserved.</p>
+        <div class="share">
+            <a href="#" class=""><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class=""><i class='bx bxl-twitter'></i></a>
+            <a href="#" class=""><i class='bx bxl-instagram-alt'></i></a>
+            <a href="#" class=""><i class='bx bxl-whatsapp'></i></a>
+            <a href="#" class=""><i class='bx bxl-telegram'></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('juice-button').addEventListener('click', function () {
+            window.location.href = 'juice.html';
+        });
+
+        document.getElementById('cakes-button').addEventListener('click', function () {
+            window.location.href = 'cakes.html';
+        });
+
+        document.getElementById('buns-button').addEventListener('click', function () {
+            window.location.href = 'buns.html';
+        });
+
+        document.querySelectorAll('.add-cart-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const itemName = button.getAttribute('data-name');
+                const itemPrice = button.getAttribute('data-price');
+
+                fetch('add_to_cart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `name=${itemName}&price=${itemPrice}`
+                }).then(response => response.text()).then(data => {
+                    if (data === 'success') {
+                        alert('Item added to cart!');
+                    } else if (data === 'not_logged_in') {
+                        alert('Failed to add item to cart. Please log in first.');
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('Failed to add item to cart.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

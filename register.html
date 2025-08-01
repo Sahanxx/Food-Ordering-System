@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .register-container h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .register-container button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-container button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const email = document.forms["registerForm"]["email"].value;
+            const password = document.forms["registerForm"]["password"].value;
+            const confirmPassword = document.forms["registerForm"]["confirm_password"].value;
+            const phoneNumber = document.forms["registerForm"]["phone_number"].value;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const phonePattern = /^\d{10}$/;
+
+            let valid = true;
+
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").style.display = "block";
+                valid = false;
+            } else {
+                document.getElementById("emailError").style.display = "none";
+            }
+
+            if (!passwordPattern.test(password)) {
+                document.getElementById("passwordError").style.display = "block";
+                valid = false;
+            } else {
+                document.getElementById("passwordError").style.display = "none";
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").style.display = "block";
+                valid = false;
+            } else {
+                document.getElementById("confirmPasswordError").style.display = "none";
+            }
+
+            if (!phonePattern.test(phoneNumber)) {
+                document.getElementById("phoneError").style.display = "block";
+                valid = false;
+            } else {
+                document.getElementById("phoneError").style.display = "none";
+            }
+
+            return valid;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="register-container">
+        <h1>Register</h1>
+        <form name="registerForm" action="register.php" method="post" onsubmit="return validateForm()">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <div id="emailError" class="error">Please enter a valid email address.</div>
+            <input type="text" name="phone_number" placeholder="Phone Number" required><br>
+            <div id="phoneError" class="error">Phone number must be 10 digits.</div>
+            <input type="text" name="address" placeholder="Address" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <div id="passwordError" class="error">Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.</div>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+            <div id="confirmPasswordError" class="error">Passwords do not match.</div>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+</body>
+
+</html>

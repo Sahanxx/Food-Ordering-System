@@ -1,0 +1,467 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+.header {
+    background: #1f2937;
+        color: #fff;
+        padding: 1px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        font-size: 20px;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.75em;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 130px; /* Adjusted margin-left */
+    font-family: 'Dancing Script', cursive;
+}
+
+.logo span {
+    color: #f97316;
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-right: 55px; /* Adjusted padding-left */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar a:hover {
+    background: #3b4b5a;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.icons div {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* Home Section */
+.home {
+    height: 100vh;
+    background: url('food/slider3.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+    /* Adjusted for fixed header */
+}
+
+.home .content {
+    color: #fff;
+    
+}
+.home .content h3 {
+    color: #fff;
+    font-size: 80px;
+    word-wrap: break-word;
+    margin-top: 5px;
+   
+}
+
+h3::after {
+    content: " Silver Spoon Restaurant";
+    display: block;
+   
+}
+
+.p1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 2px;
+   
+   
+
+}
+
+
+.home .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.home .btn:hover {
+    background: #ffc107b1;
+}
+
+
+/* Foods Section */
+.foods {
+    padding: 50px 20px;
+   background-color: rgb(222, 214, 202);
+
+}
+
+.foods .heading {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 3em;
+}
+
+.foods .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.foods .box {
+    background: #fff;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    max-height: 300px;
+    text-align: center;
+}
+
+.foods .image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.foods .content {
+    padding: 15px;
+}
+
+.foods .stars {
+    color: #ffc107;
+}
+
+.foods .stars span {
+    margin-left: 5px;
+    color: #333;
+}
+
+/* Desserts Section */
+.dessert {
+    padding: 50px 20px;
+   background-color: rgb(222, 214, 202);
+
+}
+
+.dessert .heading {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 3em;
+}
+
+.dessert .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.dessert .box {
+    background: #fff;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 300px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.dessert .image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dessert .content {
+    padding: 15px;
+}
+
+.dessert .stars {
+    color: #ffc107;
+}
+
+.dessert .stars span {
+    margin-left: 5px;
+    color: #333;
+}
+
+/* Rooms Section */
+.rooms {
+    padding: 50px 20px;
+    background: rgb(222, 214, 202);
+}
+
+.rooms .heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 3em;
+}
+
+.rooms .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.rooms .box {
+    background: #f9f9f9;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    text-align: center;
+}
+
+.rooms .image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.rooms .content {
+    padding: 15px;
+}
+
+.rooms .stars {
+    color: #ffc107;
+}
+
+.rooms .stars span {
+    margin-left: 5px;
+    color: #333;
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 20px;
+    background: rgb(196, 194, 166);
+}
+
+.contact .heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 3em;
+}
+
+.contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact .image {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+}
+
+.contact .image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contact form {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+}
+
+.contact form .box {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.contact form .btn:hover {
+    background: #555;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer .box {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer .heading {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.footer .share a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.footer .share a:hover {
+    color: #ffc107;
+}
+
+.footer .link {
+    display: block;
+    color: #fff;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.footer .link:hover {
+    color: #ffc107;
+}
+
+.footer .credit {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.footer .credit span {
+    color: #ffc107;
+}
+
+/* Back-to-Top Button */
+.top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.top img {
+    width: 30px;
+    height: 30px;
+}
+
+.top:hover {
+    background: #555;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .icons #menu-btn {
+        display: block;
+    }
+
+    .home {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .about .container,
+    .contact .row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .home .content h3 {
+        font-size: 1.5em;
+    }
+
+    .home .btn {
+        padding: 5px 10px;
+    }
+
+    .about .heading,
+    .foods .heading,
+    .rooms .heading,
+    .contact .heading {
+        font-size: 1.5em;
+    }
+}

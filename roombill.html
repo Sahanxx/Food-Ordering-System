@@ -1,0 +1,403 @@
+<html>
+
+<head>
+    <title>Room Booking </title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+        }
+
+        .header {
+            background: #1f2937;
+            color: #fff;
+            padding: 1px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            font-size: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.75em;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 130px;
+            /* Adjusted margin-left */
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .logo span {
+            color: #f97316;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .navbar {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding-right: 50px;
+            /* Adjusted padding-left */
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 10px;
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            /* Remove underline */
+        }
+
+        .navbar a:hover {
+            background: #3b4b5a;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .menu,
+        .order {
+            width: 100%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 100px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .button-group button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background 0.3s;
+        }
+
+        .button-group button.selected {
+            background: yellow;
+            color: #333;
+        }
+
+        .button-group button:hover {
+            background: #45a049;
+        }
+
+        .room-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .room-item:last-child {
+            border-bottom: none;
+        }
+
+        .room-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .room-item div {
+            flex: 1;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .order-list {
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .order-item button {
+            background: #f44336;
+            transition: background 0.3s;
+        }
+
+        .order-item button:hover {
+            background: #e41e1e;
+        }
+
+        .confirm-button {
+            background: #008CBA;
+            padding: 10px 20px;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto 0;
+            border-radius: 5px;
+        }
+
+        .confirm-button:hover {
+            background: #007bb5;
+        }
+
+        .total {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* footer styles */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        footer .share a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .footer .share a:hover {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h2 class="logo">SILVER <span>SPOON</span></h2>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="special.html">Food Menu</a></li>
+                <li><a href="family.html">Rooms</a></li>
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <div class="menu">
+            <h2>Room Categories</h2>
+            <div class="button-group">
+                <button onclick="showMenu('family', this)">Family</button>
+                <button onclick="showMenu('single', this)">Single</button>
+                <button onclick="showMenu('double', this)">Double</button>
+
+            </div>
+            <div id="menuItems">
+                <!-- Menu items will be displayed here based on the category -->
+            </div>
+        </div>
+        <div class="order">
+            <h2>Order List</h2>
+            <div id="orderList" class="order-list"></div>
+            <div class="total">
+                Total: Rs.<span id="total">0.00</span>
+            </div>
+            <button class="confirm-button" onclick="confirmOrder()">Book Now</button>
+            <form id="bookingForm" method="post" action="book_room.php" style="display: none;">
+                <input type="hidden" name="room_name" id="room_name">
+                <input type="hidden" name="price" id="price">
+                <input type="hidden" name="total_price" id="total_price">
+            </form>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Silver Spoon. All rights reserved.</p>
+        <div class="share">
+            <a href="#" class=""><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class=""><i class='bx bxl-twitter'></i></a>
+            <a href="#" class=""><i class='bx bxl-instagram-alt'></i></a>
+            <a href="#" class=""><i class='bx bxl-whatsapp'></i></a>
+            <a href="#" class=""><i class='bx bxl-telegram'></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let total = 0;
+        const menuData = {
+            single: [
+                { name: 'Standard Family Room', price: 1500.00, image: 'room/r18.jpeg' },
+                { name: 'Deluxe Family Room', price: 2000.00, image: 'room/r17.jpg' },
+                { name: 'Executive Family Suite', price: 2000.00, image: 'room/r8.jpg' },
+                { name: 'Family Room with Balcony', price: 2000.00, image: 'room/r14.jpg' },
+                { name: 'Superior Family Room', price: 2500.00, image: 'room/r10.jpg' },
+                { name: 'Family Room with Sea View', price: 2500.00, image: 'room/r7.jpg' }
+            ],
+            double: [
+                { name: 'Standard Double Room', price: 3000.00, image: 'room/r11.jpg' },
+                { name: 'Deluxe Double Room', price: 3500.00, image: 'room/r12.jpg' },
+                { name: 'Double Room with Balcony', price: 3500.00, image: 'room/r13.jpg' },
+                { name: 'Superior Double Room', price: 3500.00, image: 'room/r14.jpeg' },
+                { name: 'Executive Double Room', price: 4000.00, image: 'room/r15.jpg' },
+                { name: 'Double Room with Sea View', price: 4500.00, image: 'room/r5.jpeg' }
+            ],
+            family: [
+                { name: 'Standard Family Room', price: 4000.00, image: 'room/r4.jpg' },
+                { name: 'Deluxe Family Room', price: 4000.00, image: 'room/r14.jpeg' },
+                { name: 'Single Room with Balcony', price: 4500.00, image: 'room/r6.jpg' },
+                { name: 'Superior Single Room', price: 4500.00, image: 'room/r1.jpg' },
+                { name: 'Executive Single Room', price: 5000.00, image: 'room/r2.jpg' },
+                { name: 'Family Room with Sea View', price: 5000.00, image: 'room/R.jpg' }
+            ]
+        };
+
+        function showMenu(category, button) {
+            const menuItemsDiv = document.getElementById('menuItems');
+            menuItemsDiv.innerHTML = '';
+            menuData[category].forEach(item => {
+                const roomItem = document.createElement('div');
+                roomItem.className = 'room-item';
+                roomItem.innerHTML = `<img src="${item.image}" alt="${item.name}"><div><span>${item.name} - Rs.${item.price.toFixed(2)}</span></div><button onclick="addToOrder('${item.name}', ${item.price})">Add</button>`;
+                menuItemsDiv.appendChild(roomItem);
+            });
+
+            // Update the selected button style
+            const buttons = document.querySelectorAll('.button-group button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+
+        function addToOrder(item, price) {
+            const orderList = document.getElementById('orderList');
+            const orderItem = document.createElement('div');
+            orderItem.className = 'order-item';
+            orderItem.innerHTML = `${item} - Rs.${price.toFixed(2)} <button onclick="removeFromOrder(this, ${price})">Remove</button>`;
+            orderList.appendChild(orderItem);
+
+            total += price;
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function removeFromOrder(element, price) {
+            const orderList = document.getElementById('orderList');
+            orderList.removeChild(element.parentElement);
+
+            total -= price;
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function confirmOrder() {
+            if (total === 0) {
+                alert("Your order is empty!");
+            } else {
+                // Get the room details from the order list
+                const orderItems = document.querySelectorAll('.order-item');
+                let roomDetails = [];
+                orderItems.forEach(item => {
+                    const roomText = item.textContent.replace('Remove', '').trim();
+                    const [roomName, roomPrice] = roomText.split(' - Rs.');
+                    roomDetails.push({ name: roomName, price: parseFloat(roomPrice) });
+                });
+
+                // Submit the form for each room booked
+                roomDetails.forEach(room => {
+                    document.getElementById('room_name').value = room.name;
+                    document.getElementById('price').value = room.price;
+                    document.getElementById('total_price').value = total;
+                    document.getElementById('bookingForm').submit();
+                });
+
+                alert(`Your room has been confirmed. Total: Rs.${total.toFixed(2)}`);
+                document.getElementById('orderList').innerHTML = '';
+                total = 0;
+                document.getElementById('total').textContent = total.toFixed(2);
+            }
+        }
+
+
+        // Show the single room menu by default on page load
+        showMenu('single', document.querySelector('.button-group button'));
+    </script>
+</body>
+
+</html>

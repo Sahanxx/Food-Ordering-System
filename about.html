@@ -1,0 +1,283 @@
+<html>
+<head>
+    <title>About</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .header {
+        background: #1f2937;
+        color: #fff;
+        padding: 30px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        font-size: 20px;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        
+    }
+
+    .logo {
+        font-size: 1.75em;
+        font-weight: bold;
+        color: #fff;
+        margin-left: 130px; /* Adjusted margin-left */
+        font-family: 'Dancing Script', cursive;
+    }
+
+    .logo span {
+        color: #f97316;
+        font-family: 'Dancing Script', cursive;
+    }
+
+    .navbar {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding-right: 50px; /* Adjusted padding-left */
+    }
+
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li {
+        margin: 0 10px;
+    }
+
+    .navbar a {
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 3px;
+        transition: background 0.3s ease;
+        text-decoration: none; /* Remove underline */
+    }
+
+    .navbar a:hover {
+        background: #3b4b5a;
+    }
+
+    .hero {
+        background-color: #f8f8f8;
+        overflow: hidden;
+        padding-top: 100px; /* Add padding to prevent content from being hidden behind the fixed header */
+    }
+
+    .heading h1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 55px;
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: 65px auto;
+    }
+
+    .hero-content {
+        flex: 1;
+        width: 600px;
+        margin: 0 25px;
+    }
+
+    .hero-content h2 {
+        font-size: 38px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .hero-content p {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 40px;
+        color: #666;
+    }
+
+    .hero-image {
+        flex: 1;
+        width: 600px;
+        margin: auto;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .hero-content button {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .hero-content button:hover {
+        background-color: #555;
+        transform: scale(1.1);
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .p1 {
+        font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+        background: #333;
+        color: #fff;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .footer .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .footer .box {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+
+    .footer .heading {
+        margin-bottom: 15px;
+        font-size: 1.5em;
+    }
+
+    .footer .share a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 1.2em;
+        transition: color 0.3s ease;
+    }
+
+    .footer .share a:hover {
+        color: #ffc107;
+    }
+
+    .footer .link {
+        display: block;
+        color: #fff;
+        margin: 10px 0;
+        transition: color 0.3s ease;
+    }
+
+    .footer .link:hover {
+        color: #ffc107;
+    }
+
+    .footer .credit {
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+
+    .footer .credit span {
+        color: #ffc107;
+    }
+
+</style>
+
+<body>
+    <header class="header">
+        <h2 class="logo">SILVER <span>SPOON</span></h2>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Food Menu</a></li>
+                <li><a href="family.html">Rooms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="heading">
+            <h1>...ABOUT US...</h1>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>We Cook Food Better</h2>
+                <p>Welcome to "SILVER SPOON"! We are a passionate team of culinary experts dedicated to crafting delicious and memorable dining experiences for our guests. Our menu showcases a fusion of flavours and ingredients, curated with love and care. Join us for a delightful journey of taste and hospitality.</p>
+                <button class="cta-button" onclick="location.href='index.html'">Back To Home</button>
+            </div>
+            <div class="hero-content">
+                <img src="About.jpg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3 class="heading">find us here</h3>
+                <p>Get more information about our services and offers.</p>
+                <div class="share">
+                    <a href="#" class=""><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#" class=""><i class='bx bxl-twitter'></i></a>
+                    <a href="#" class=""><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#" class=""><i class='bx bxl-whatsapp'></i></a>
+                    <a href="#" class=""><i class='bx bxl-telegram'></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact us</h3>
+                <p>0252236072</p>
+                <a href="mailto:silverspoonhotel@gmail.com" class="link">silverspoonhotel@gmail.com</a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html" class="link">Home</a>
+                <a href="about.html" class="link">About</a>
+                <a href="menu.html" class="link">Foods</a>
+                <a href="single.html" class="link">Rooms</a>
+            </div>
+        </div>
+        <div class="credit">
+            <p>created by <span>Silver Spoon</span> | all rights reserved</p>
+        </div>
+    </section>
+
+</body>
+
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>juice</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .header {
+      background: #1f2937;
+      color: #fff;
+      padding: 1px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      font-size: 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.75em;
+      font-weight: bold;
+      color: #fff;
+      margin-left: 130px;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .logo span {
+      color: #f97316;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .navbar {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding-right: 50px;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      margin: 0 10px;
+    }
+
+    .navbar a {
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 3px;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background: #3b4b5a;
+    }
+
+    section {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: 1200px;
+    }
+
+    .food-item {
+      width: 300px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .food-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .food-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      cursor: pointer;
+    }
+
+    .food-info {
+      padding: 1em;
+      text-align: center;
+    }
+
+    h3,
+    p {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #e84343;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #c62828;
+    }
+
+    .button-group {
+      margin-bottom: 40px;
+      margin-left: 250px;
+    }
+
+    .button-group button {
+      padding: 12px 24px;
+      margin-top: 100px;
+      margin-right: 10px;
+      background-color: #ddd;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+    }
+
+    .button-group button#juice-button {
+      background-color: #FFC107;
+      color: #fff;
+    }
+
+    .button-group button:hover {
+      background-color: #FFC107;
+      color: #fff;
+    }
+
+    .shead {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: black;
+      margin-left: 250px;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 80px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    footer .share a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    footer .share a:hover {
+      color: #ffc107;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h2 class="logo">SILVER <span>SPOON</span></h2>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="special.html">Food Menu</a></li>
+        <li><a href="family.html">Rooms</a></li>
+
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="logout.php">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="food-section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="shead">
+          <h2>Special Menu</h2>
+        </div>
+
+        <div class="special-menu text-center">
+          <div class="button-group filter-button-group">
+            <button data-filter="Special" id="special-button">Special</button>
+            <button data-filter=".Juice" id="juice-button">Juice</button>
+            <button data-filter=".Cakes" id="cakes-button">Cakes</button>
+            <button data-filter=".Buns" id="buns-button">Buns</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="juice-section">
+      <div class="food-item">
+        <img src="juice/1.jpg" alt="Avocado Juice">
+        <div class="food-info">
+          <h3>Avocado Juice</h3>
+          <p>RS: 180</p>
+          <button class="add-cart-button" data-name="Avocado Juice" data-price="180">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/2.jpg" alt="Orange Juice">
+        <div class="food-info">
+          <h3>Orange Juice</h3>
+          <p>RS: 100</p>
+          <button class="add-cart-button" data-name="Orange Juice" data-price="100">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/3.jpg" alt="Apple Juice">
+        <div class="food-info">
+          <h3>Apple Juice</h3>
+          <p>RS: 150</p>
+          <button class="add-cart-button" data-name="Apple Juice" data-price="150">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/4.jpg" alt="Mango Juice">
+        <div class="food-info">
+          <h3>Mango Juice</h3>
+          <p>RS: 180</p>
+          <button class="add-cart-button" data-name="Mango Juice" data-price="180">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/5.jpg" alt="Dragon fruit Juice">
+        <div class="food-info">
+          <h3>Dragon fruit Juice</h3>
+          <p>RS: 200</p>
+          <button class="add-cart-button" data-name="Dragon fruit Juice" data-price="200">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/6.avif" alt="Passion fruit Juice">
+        <div class="food-info">
+          <h3>Passion fruit Juice</h3>
+          <p>RS: 170</p>
+          <button class="add-cart-button" data-name="Passion fruit Juice" data-price="170">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/7.jpg" alt="Watermelon Juice">
+        <div class="food-info">
+          <h3>Watermelon Juice</h3>
+          <p>RS: 150</p>
+          <button class="add-cart-button" data-name="Watermelon Juice" data-price="150">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/8.jpg" alt="Pomegranate Juice">
+        <div class="food-info">
+          <h3>Pomegranate Juice</h3>
+          <p>RS: 250</p>
+          <button class="add-cart-button" data-name="Pomegranate Juice" data-price="250">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="food-item">
+        <img src="juice/9.jpg" alt="Pineapple Juice">
+        <div class="food-info">
+          <h3>Pineapple Juice</h3>
+          <p>RS: 140</p>
+          <button class="add-cart-button" data-name="Pineapple Juice" data-price="140">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2024 by Silver Spoon. All rights reserved.</p>
+    <div class="share">
+      <a href="#" class=""><i class='bx bxl-facebook-circle'></i></a>
+      <a href="#" class=""><i class='bx bxl-twitter'></i></a>
+      <a href="#" class=""><i class='bx bxl-instagram-alt'></i></a>
+      <a href="#" class=""><i class='bx bxl-whatsapp'></i></a>
+      <a href="#" class=""><i class='bx bxl-telegram'></i></a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('special-button').addEventListener('click', function () {
+      window.location.href = 'menu.html';
+    });
+
+    document.getElementById('cakes-button').addEventListener('click', function () {
+      window.location.href = 'cakes.html';
+    });
+
+    document.getElementById('buns-button').addEventListener('click', function () {
+      window.location.href = 'buns.html';
+    });
+
+    document.querySelectorAll('.add-cart-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+
+        fetch('add_to_cart.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: `name=${itemName}&price=${itemPrice}`
+        }).then(response => response.text()).then(data => {
+          if (data === 'success') {
+            alert('Item added to cart!');
+          } else if (data === 'not_logged_in') {
+            alert('Failed to add item to cart. Please log in first.');
+            window.location.href = 'login.html';
+          } else {
+            alert('Failed to add item to cart.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
